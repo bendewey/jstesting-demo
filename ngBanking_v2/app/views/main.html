@@ -1,0 +1,73 @@
+<div ng-controller="accountCtrl as vm">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Tools</div>
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <form name="deposit" class="form-inline" novalidate>
+                        <div class="form-group">
+                            <label class="sr-only" for="memo">Memo</label>
+                            <input type="text" class="form-control" name="memo" placeholder="Memo" ng-model="vm.newDescription" ng-required="true">
+                            <span popover-toggle="deposit.memo.$error.required && deposit.memo.$touched" popover="Memo is required."
+                                  popover-animation="false" popover-placement="bottom"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="amount">Amount (in dollars)</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">$</div>
+                                <input type="text" class="form-control" id="amount" name="amount" placeholder="Amount" ng-model="vm.newAmount">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" ng-click="vm.addTransaction()">Deposit</button>
+                    </form>
+                </div>
+                <div class="col-sm-12 col-md-6">
+
+                    <form name="billPay" class="form-inline" novalidate>
+                        <div class="form-group">
+                            <label class="sr-only" for="billToCompany">Bill To</label>
+                            <input type="text" class="form-control" name="billToCompany" placeholder="Bill To" ng-model="vm.billTo" ng-required="true">
+                            <span popover-toggle="billPay.billToCompany.$error.required && billPay.billToCompany.$touched" popover="Bill to is required."
+                                  popover-animation="false" popover-placement="bottom"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="billToAmount">Amount (in dollars)</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">$</div>
+                                <input type="text" class="form-control" name="billToAmount" placeholder="Amount" ng-model="vm.billAmount" ng-pattern="/^[0-9,.]+$/" ng-required="true">
+                                <span popover-toggle="billPay.billToAmount.$error.required && billPay.billToAmount.$touched" popover="Bill amount is required."
+                                      popover-animation="false" popover-placement="bottom"></span>
+                                <span popover-toggle="billPay.billToAmount.$error.pattern && billPay.billToAmount.$touched" popover="Bill amount must be a non-negative number."
+                                      popover-animation="true" popover-placement="bottom"></span>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" ng-click="vm.payBill()">Pay Bill</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in vm.ledger track by $index">
+                <td>{{item.description}}</td>
+                <td>{{item.amount | currency}}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th></th>
+                <th ng-bind="vm.balance() | currency"></th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
