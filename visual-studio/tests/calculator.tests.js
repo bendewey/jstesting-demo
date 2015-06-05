@@ -8,5 +8,5 @@ test("Calculator Add Test - Should add 2+3", function (assert) {
     var actual = Calculator.add(2, 3);
 
     // Assert
-    //assert.equal(actual, expected, "2+3 should equal 5");
+    assert.equal(actual, expected, "2+3 should equal 5");
 });
