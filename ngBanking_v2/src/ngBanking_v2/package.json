@@ -28,6 +28,6 @@
     "karma-ng-html2js-preprocessor": "^0.1.2",
     "karma-phantomjs-launcher": "^0.1.4",
     "ng-html2js": "^2.0.0",
-    "protractor": "^1.8.0",
+    "protractor": "^1.8.0"
   }
 }
