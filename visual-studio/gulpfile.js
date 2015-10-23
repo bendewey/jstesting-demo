@@ -17,3 +17,5 @@ gulp.task('test', function() {
     return gulp.src('./test-runner.html')
         .pipe(qunit());
 });
+
+gulp.task('build', ['jshint', 'test']);
