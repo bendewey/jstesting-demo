@@ -30,7 +30,7 @@
                 description: vm.billTo,
                 amount: -vm.billAmount
             };
-            GeneralLedger.add(item);
+            //GeneralLedger.add(item);
             vm.billTo = '';
             vm.billAmount = '';
         };
