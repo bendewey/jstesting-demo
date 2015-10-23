@@ -11,7 +11,6 @@ describe('billPay', function () {
             $scope: scope,
             GeneralLedger: mockLedger
         });
-
     }));
 
     it('should add to General Ledger', function () {

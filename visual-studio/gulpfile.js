@@ -1,7 +1,7 @@
-var gulp=require('gulp');
+var gulp = require('gulp');
 var connect = require('gulp-connect');
-var jshint=require('gulp-jshint');
-var qunit=require('gulp-qunit');
+var jshint = require('gulp-jshint');
+var qunit = require('gulp-qunit');
  
 gulp.task('webserver', function() {
   connect.server();
@@ -9,7 +9,8 @@ gulp.task('webserver', function() {
 
 gulp.task('jshint', function() {
     return gulp.src('scripts/**/*.js')
-        .pipe(jshint());
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'));
 });
 
 gulp.task('test', function() {
