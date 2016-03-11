@@ -20,6 +20,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <TargetFrameworkProfile />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -92,9 +93,6 @@
     <Content Include="test-runner.html" />
     <Content Include="tests\calculator.tests.js" />
     <Content Include="Web.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="project.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
